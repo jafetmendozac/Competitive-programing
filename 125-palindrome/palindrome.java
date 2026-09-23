@@ -30,3 +30,7 @@ class Main {
     System.out.println(sol.isPalindrome(text));
   }
 }
+
+
+// Time:  O(n)
+// Space: O(n)
