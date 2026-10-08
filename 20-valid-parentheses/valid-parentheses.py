@@ -1,28 +1,30 @@
 class Solution:
   def isValid(self, s: str) -> bool:
+    if len(s) % 2 == 1:
+      return False
 
-    pila=[]
+    pila = []
     pares = {')': '(', ']': '[', '}': '{'}
 
-    for char in s: 
+    for char in s:
       if char in '([{':
         pila.append(char)
-      else:
-        if not pila or pila[-1] != pares[char]:
-          return False
-        pila.pop()
+      elif char not in pares or not pila or pila.pop() != pares[char]:
+        return False
 
-    return True
+    return not pila
 
 sol = Solution()
-text_1="()[]{}"
-text_2="()" # v/
-text_3="())" # v/
-text_4="([])"
-text_5="([)]"
+# text_1="()[]{}"
+# text_2="()" # v/
+# text_3="())" # v/
+# text_4="([])"
+# text_5="([)]"
+text_6="(("
 
-sol.isValid(text_1)
-sol.isValid(text_2)
-sol.isValid(text_3)
-sol.isValid(text_4)
-sol.isValid(text_5)
+# sol.isValid(text_1)
+# sol.isValid(text_2)
+# sol.isValid(text_3)
+# sol.isValid(text_4)
+# sol.isValid(text_5)
+print(sol.isValid(text_6))
